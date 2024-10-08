@@ -56,13 +56,13 @@
 }
 
 .nav-cart-count{
-    width:13px;
-    height: 15px ;
+    width:18px;
+    height: 18px ;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top:-30px;
-    margin-left: -20px;
+    margin-left: -22px;
     border-radius: 11px;
     font-size: 15px;
     background: red;
