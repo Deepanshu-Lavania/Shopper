@@ -3,8 +3,8 @@
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    height: 90vh;
-    margin:0px 30px;
+    height:auto;
+    margin:40px;
 }
 .relatedproducts h1{
     color: #171717;
@@ -22,4 +22,33 @@
     margin-top: 50px;
     display: flex;
     gap: 30px;   
+}
+@media(max-width:800px){
+    .relatedproducts h1{
+        font-size:30px;
+    }
+    .relatedproducts hr{
+        width:150px;
+        height: 3px;
+    }
+}
+@media(max-width:500px){
+    .relatedproducts{
+        gap: 10px;
+        height:auto;
+        margin:40px;
+    }
+    .relatedproducts h1{
+        font-size:25px;
+    }
+    .relatedproducts hr{
+        width:150px;
+        height: 5px;
+    }
+    .relatedproducts-item{
+        margin-top:35px;
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        gap: 30px;   
+    }
 }

@@ -1,6 +1,6 @@
-.newsletter{
+.newsletter {
     width: 80%;
-    height: 40vh;
+    height:30vh; /* Changed from fixed height to auto */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -8,43 +8,97 @@
     margin: auto;
     background: linear-gradient(180deg , #fde1ff 0% ,#e1ffea22 60%);
     gap: 30px;
-    margin-bottom: 50px;
+    padding-top: 40px;
+    margin-bottom:40px;
 }
-.newsletter h1{
+
+.newsletter h1 {
     color: #454545;
     font-size: 30px;
     font-weight: 600;
 }
-.newsletter p{
+
+.newsletter p {
     color: #454545;
     font-size: 20px;
 }
-.newsletter div{
+
+.newsletterdiv {
     display: grid;
-    grid-template-columns:2fr 1fr;
+    grid-template-columns: 2fr 1fr; /* Input takes more space than button */
     align-items: center;
     background: white;
-    width:70%;
-    height:50px;
+    width: 70%;
+    height: 50px; /* Keep this to maintain the size */
     border: 1px solid #e3e3e3;
     border-radius: 80px;
     border-right: none;
     gap: 10px;
 }
-.newsletter input{
+
+.newsletter input {
     padding-left: 20px;
     border: none;
     outline: none;
     color: #616161;
-    font-family: Poppins;
+    font-family: Poppins, sans-serif;
     font-size: 16px;
 }
-.newsletter div button{
-    width: 150px;
+
+.newsletter div button {
+    width: 150px; /* Fixed width for larger screens */
     height: 50px;
     border-radius: 80px;
     background: black;
     color: white;
     font-size: 16px;
     cursor: pointer;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 800px) {
+    .newsletter h1 {
+        font-size: 23px;
+    }
+    .newsletter p {
+        font-size: 18px;
+    }
+    .newsletterdiv {
+        width: 90%;
+    }
+    .newsletter input {
+        padding: 0px 5px;
+        font-size: 14px;
+    }
+    .newsletter div button {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 500px) {
+    .newsletter {
+        padding:10px;
+        margin-bottom: 5px;
+    }
+    .newsletter h1 {
+        font-size: 18px;
+    }
+    .newsletter p {
+        font-size: 12px;
+    }
+    .newsletterdiv {
+        border: 1.5px solid #e3e3e3;
+        height: 30px;
+        gap: 5px;
+        grid-template-columns: 1fr; /* Stack vertically on small screens */
+    }
+    .newsletter input {
+        padding:10px;
+        font-size: 14px;
+    }
+    .newsletter div button {
+        width: 100%; /* Make button full width in smaller screens */
+        height: 30px;
+        font-size: 14px;
+    }
 }

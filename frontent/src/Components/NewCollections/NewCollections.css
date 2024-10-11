@@ -24,5 +24,32 @@
     margin: 20px 0px;
     width: 80vw;
     height: auto;
-    
+}
+@media(max-width:800px){
+   .new-collections h1{
+        font-size:18px;
+    }
+    .new-collections hr{
+        width:150px;
+        height: 4px;
+    }
+    .collections{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        gap: 10px;
+    }
+}
+@media(max-width:500px){
+    .new-collections h1{
+        font-size:15px;
+    }
+    .new-collections hr{
+        width:100px;
+        height: 3px;
+    }
+    .collections{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        gap:15px;
+    }
 }

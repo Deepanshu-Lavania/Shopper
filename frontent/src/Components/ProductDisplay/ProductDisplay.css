@@ -8,7 +8,6 @@
 .productdisplay{
     display:grid;
     grid-template-columns: repeat(2,1fr);
-    display: 16px;
     width:95%;
     gap:10px;
 }
@@ -53,11 +52,11 @@
     font-size: 24px;
     font-weight: 700;
 }
-.productdisplay-right-prices-old{
+.productdisplay-right-price-old{
     color: #818181;
     text-decoration: line-through;
 }
-.productdisplay-right-prices-new{
+.productdisplay-right-price-new{
     color: #ff4141;
 }
 .productdisplay-right-size h1{
@@ -92,4 +91,74 @@
 }
 .productdisplay-right-category span{
     font-weight: 600;
+}
+@media(max-width:800px){
+    .productdisplay-left {
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content:center;
+        align-items:center;
+    }
+    .productdisplay-img img{
+        width: 100%;
+        height:100%;
+    }
+    .productdisplay-img-list {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+    }
+    .productdisplay-right{
+        gap:15px;
+    }
+    .productdisplay-right h1{
+        font-size:20px;
+    }
+    .productdisplay-right-stars{
+        gap: 5px;
+        font-size:14px;
+    }
+    .productdisplay-right-prices{
+        gap:24px;
+        font-size: 22px;
+    }
+    .productdisplay-right-price-old{
+        color: #818181;
+        text-decoration: line-through;
+    }
+    .productdisplay-right-price-new{
+        color: #ff4141;
+    }
+    .productdisplay-right-sizes{
+        display: flex;
+        gap:12px;
+    }
+    .productdisplay-right-sizes div{
+        padding:13px;
+        font-size:13px;
+    }
+    .productdisplay-right button{
+        padding:14px 20px;
+        width:150px;
+        font-size: 12px;
+    }
+}
+
+@media(max-width:500px){
+    .productDisplay{
+        padding: 18px 0px;
+    }
+    .productdisplay{
+        display: flex;
+        flex-direction: column;
+    }
+    .productdisplay-left{
+        display: grid;
+        grid-template-columns:.5fr 2fr;
+    }
+    .productdisplay-img-list{
+        flex-direction: column;
+        height: 100%;
+        align-items: center;
+    }
 }

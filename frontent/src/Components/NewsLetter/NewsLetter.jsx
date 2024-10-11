@@ -6,7 +6,7 @@ export default function NewsLetter() {
     <div className="newsletter">
         <h1>Get Exclusive offers On Your Email</h1>
         <p>Subscribe to our newletter and stay updated</p>
-        <div>
+        <div className='newsletterdiv'>
             <input type="email" placeholder='Your Email id'/>
             <button>Subscribe</button>
         </div>

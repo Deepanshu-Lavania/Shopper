@@ -18,7 +18,7 @@ export default function Item(props) {
       {/* To fix this, you need to ensure that the Link always navigates to the root level of the /product/:productId path, rather than appending the product ID to the current URL. You can do this by prepending a / to the path in the Link component to make it an absolute path. */}
         {/* <Link to={`product/${props.id}`} onClick={window.scrollTo(0, 0)}> */}
         <Link to={`/product/${props.id}`} onClick={handleScrollToTop}>
-          <img src={image} width="100%" height="auto" alt="" />
+          <img src={image} alt="" />
         </Link>
         {/* By using /product/${id} instead of product/${id}, you ensure that React Router treats the path as absolute, not relative, which prevents the incorrect URL nesting behavior. This should fix the issue, so clicking any related product will correctly navigate to the path http://localhost:5173/product/:id */}
         <p>{name}</p>

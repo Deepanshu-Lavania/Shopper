@@ -27,3 +27,24 @@
     padding: 12px;
     padding-bottom:30px;
 }
+@media(max-width:800px){
+    .descriptionbox{
+        margin: 25px;
+    }
+    .descriptionbox-nav-box{
+        font-size: 13px;
+        font-weight: 600;
+        width:130px;
+        height:40px;
+    }
+}
+@media(max-width:500px){
+    .descriptionbox{
+        margin: 20px;
+    }
+    .descriptionbox-nav-box{
+        font-size: 12px;
+        width:120px;
+        height:35px;
+    }
+}
