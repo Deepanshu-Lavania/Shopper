@@ -52,12 +52,12 @@
         width:90%;
         margin:20px 0;
     }
-    .shop-category .shopcategory-banner{
-        height: 45vh;
+    .shop-category .shop-category-center .shopcategory-banner{
+        height:45vh;
     }
     .shopcategory-products{
         margin: 16px 0px ;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr);
         column-gap:35px;
     }
     .shop-category .shopcategory-banner{
@@ -75,6 +75,10 @@
         margin:25px auto;
         width: 150px;
         height: 45px;
+    }
+    .shopcategory-products{
+        margin: 16px 0px ;
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 @media(max-width:400px){

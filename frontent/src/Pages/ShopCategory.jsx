@@ -6,7 +6,7 @@ import Item from "../Components/Item/Item";
 import "./CSS/ShopCategory.css";
 
 export default function ShopCategory(props) {
-  const { all_product } = useContext(ShopContext);
+  const { all_product } = useContext(ShopContext); //consumer -- It contains the array of an objects
   // console.log(all_product);
   return (
     <div className="shop-category">
@@ -38,9 +38,7 @@ export default function ShopCategory(props) {
             }
           })}
         </div>
-        <div className="shopcategory-loadmore">
-          Explore More
-        </div>
+        <div className="shopcategory-loadmore">Explore More</div>
       </div>
     </div>
   );

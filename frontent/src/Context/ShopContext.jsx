@@ -25,6 +25,7 @@ const getDefaultCart = () => {
   for (let index = 0; index <= all_product.length; index++) {
     cart[index] = 0;
   }
+  // console.log("Array-like object to track item quantities : " ,JSON.stringify(cart));
   return cart;
 };
 
@@ -69,7 +70,7 @@ const ShopContextProvider = ({ children }) => {
   }
 
   const contextValue = { all_product, cartItems, addToCart, removeFromCart,getTotalCartAmount, getTotalCartItems }; //store data
-
+//Context Value contains the array of an object 
   return (
     <ShopContext.Provider value={contextValue}>{children}</ShopContext.Provider>
   );

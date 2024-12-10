@@ -28,13 +28,21 @@
   height: 88px;
 }
 .cartitems-remove-icon {
-  width: 15px;
+  display: flex;
+  gap:5px;
+  justify-content: space-between;
+  font-size: 1.1rem;
   margin: 0px 35px;
   cursor: pointer;
+  & .btn{
+    padding: 1px;
+    border: 2px solid #ebebeb;
+  background: white;
+  }
 }
 .cartitems-quantity {
-  width: 60px;
-  height: 50px;
+  width:40px;
+  height: 35px;
   border: 2px solid #ebebeb;
   background: white;
 }
@@ -118,7 +126,7 @@
     height: 88px;
   }
   .cartitems-remove-icon {
-    width: 10px;
+    gap: 2px;
     margin: 0px 20px;
   }
   .cartitems-quantity {

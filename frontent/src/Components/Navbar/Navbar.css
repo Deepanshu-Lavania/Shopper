@@ -152,19 +152,19 @@
 }
 @media (max-width: 500px) {
   .nav-login-cart {
-    padding: 0px 5px;
+    padding: 0px 4px;
     gap:2px;
 }
   .nav-logo p {
     font-size: 20px;
   }
   .nav-login-cart button {
-    width: 65px;
+    width:55px;
     height: 20px;
-    font-size: 14px;
+    font-size: 13px;
   }
   .nav-login-cart a img {
-    width: 25px;
+    width: 20px;
   }
   .nav-menu li {
     font-size: 20px;

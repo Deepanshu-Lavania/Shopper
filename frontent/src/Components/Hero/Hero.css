@@ -56,6 +56,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
 }
 @media (max-width: 1280px) {
   .hero-latest-btn {
@@ -90,16 +91,16 @@
     line-height: 0.8;
   }
   .hero-left h2 {
-    font-size: 20px;
+    font-size: 17px;
   }
   .hero-left p {
-    font-size: 40px;
+    font-size:34px;
   }
   .hero-hand-icon img {
     width: 50px;
   }
   .hero-latest-btn {
-    width: 180px;
+    width: 150px;
     height: 30px;
     font-size: 15px;
   }
@@ -107,7 +108,12 @@
     width: 16px;
   }
   .hero-right img {
-    height: 40vh;
+    height:50vh;
+  }
+}
+@media (max-width:650px){
+  .hero-right img {
+    height:40vh;
   }
 }
 @media (max-width: 500px) {
@@ -135,6 +141,6 @@
     width: 10px;
   }
   .hero-right img {
-    height: 30vh;
+    height:30vh;
   }
 }
