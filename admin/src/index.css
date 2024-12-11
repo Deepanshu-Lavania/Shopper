@@ -4,6 +4,7 @@
   box-sizing: border-box;
 }
 body{
+  font-size: 66.6%;
   font-family: "Poppins";
   height: 100vh;
   background-color: #f6f6f6;

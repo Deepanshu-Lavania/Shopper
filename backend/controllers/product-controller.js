@@ -5,6 +5,8 @@ const home = (req, res) => {
 };
 
 const product = async (req, res) => {
+  // console.log("req.body is  ",req.body);
+  
   try {
     let products = await Product.find({});
     let id;
@@ -26,7 +28,7 @@ const product = async (req, res) => {
 
     // Save the product to the database
     await product.save();
-    console.log("Product saved:", product);
+    console.log("Product saved  :", product);
     //send response to frontend
     res.json({
       success: true,
