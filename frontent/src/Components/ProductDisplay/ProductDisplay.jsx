@@ -6,6 +6,9 @@ import { ShopContext } from "../../Context/ShopContext";
 
 export default function ProductDisplay({ product }) {
   const {addToCart} = useContext(ShopContext);//shopContext is the wearhouse
+  if (!product) {
+    return <div className="breadcrum">Loading...</div>;
+  }
   return (
     <div className="productDisplay">
       <div className="productdisplay">

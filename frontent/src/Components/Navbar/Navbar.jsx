@@ -1,5 +1,5 @@
 import React, { useContext, useRef, useState } from "react";
-
+import { useNavigate } from "react-router-dom";
 import "./Navbar.css";
 import logo from "../../assets/logo.png";
 import cart_icon from "../../assets/cart_icon.png";
@@ -8,6 +8,7 @@ import { ShopContext } from "../../Context/ShopContext";
 import arrow_icon from "../../assets/breadcrum_arrow.png";
 
 export default function Navbar() {
+  const navigate = useNavigate();
   const [menu, setMenu] = useState("");
   const menuRef = useRef();
   const dropdown_toggle = (e) => {
@@ -18,6 +19,11 @@ export default function Navbar() {
     textDecoration: "none",
   };
   const { getTotalCartItems } = useContext(ShopContext);
+
+  const logout = () => {
+    localStorage.removeItem("auth-token");
+    navigate("/");
+  };
   return (
     <>
       <div className="navbar">
@@ -58,11 +64,16 @@ export default function Navbar() {
           </li>
         </ul>
         <div className="nav-login-cart">
-          <button>
-            <Link style={linkStyle} to="/login">
-              Login
-            </Link>
-          </button>
+          {localStorage.getItem("auth-token") ? (
+            <button onClick={() => {logout()}}>Logout
+            </button>
+          ) : (
+            <button>
+              <Link style={linkStyle} to="/login">
+                Login
+              </Link>
+            </button>
+          )}
           <Link style={linkStyle} to="/cart">
             <img src={cart_icon} alt="" />
           </Link>

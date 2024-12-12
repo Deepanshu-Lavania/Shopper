@@ -4,6 +4,9 @@ const cors = require("cors");
 const connectDb = require('./utils/db');
 const fileRoute = require("./router/file-route")
 const productRoute = require("./router/product-route");
+const userRoute = require("./router/user-route");
+const collectionRoute=require("./router/collection-route");
+const cartRoute = require("./router/cart-route");
 
 const app = express()
 
@@ -16,6 +19,9 @@ app.use(cors());
 app.use('/images',express.static('upload/images'))
 app.use("/",fileRoute)
 app.use('/',productRoute)
+app.use('/',userRoute)
+app.use('/',collectionRoute)
+app.use('/',cartRoute)
 
 
 //listen server && connect with database

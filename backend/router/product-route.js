@@ -1,6 +1,6 @@
 const express = require("express");
-const {home, product, remove, getProduct} = require("../controllers/product-controller");
 const router = express.Router();
+const {home, product, remove, getProduct} = require("../controllers/product-controller");
 
 //creating API
 router.get("/",home)

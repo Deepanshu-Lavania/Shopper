@@ -7,7 +7,7 @@ import "./CSS/ShopCategory.css";
 
 export default function ShopCategory(props) {
   const { all_product } = useContext(ShopContext); //consumer -- It contains the array of an objects
-  // console.log(all_product);
+  console.log("all_product is : ",all_product);
   return (
     <div className="shop-category">
       <div className="shop-category-center">

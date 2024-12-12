@@ -11,6 +11,8 @@ export default function Product() {
   const {all_product} = useContext(ShopContext);//all_product == contextValue
   const {productId} = useParams();//useParams give id as string
   const product = all_product.find((e)=> e.id === Number(productId));
+  console.log("product id is : ",product);
+  
   return (
     <div>
       <Breadcrum product={product}/>

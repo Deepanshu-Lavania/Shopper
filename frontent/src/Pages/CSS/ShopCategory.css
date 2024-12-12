@@ -80,6 +80,10 @@
         margin: 16px 0px ;
         grid-template-columns: repeat(3, 1fr);
     }
+    .shop-category .shop-category-center .shopcategory-banner{
+        width: 100%;
+        height:20vh;
+    }
 }
 @media(max-width:400px){
     .shopcategory-products{
