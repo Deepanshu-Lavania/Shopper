@@ -61,6 +61,10 @@
     }
 }
 @media(max-width:800px){
+    .offers{
+        padding: 0px;
+        gap: 10px;
+    }
     .offers-left{
         gap: 10px;
         line-height: 1.3;
@@ -86,7 +90,8 @@
 }
 @media(max-width:500px){
     .offers{
-        height: 35vh;
+        height: 30vh;
+        gap: 5px;
         margin-bottom: 0px;
     }
     .offers-left{

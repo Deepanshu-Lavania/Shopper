@@ -42,10 +42,30 @@ export default function AdminUser() {
 
   useEffect(() => {
     const fetchAllUsers = async () => {
-      const res = await axios.get("http://localhost:8000/getadminuser");
-      const Data = res.data;
-      console.log("All getusers for admin : ", Data);
-      setGetAllUser(Data.getuser);
+      // const res = await axios.get("http://localhost:8000/getadminuser");
+      // const Data = res.data;
+      // console.log("All getusers for admin : ", Data);
+      // setGetAllUser(Data.getuser);
+      if (localStorage.getItem("auth-token")) {
+        try {
+          fetch("http://localhost:8000/getadminuser", {
+            method: "POST",
+            headers: {
+              Accept: "application/form-data",
+              "auth-token": `${localStorage.getItem("auth-token")}`,
+              "Content-Type": "application/json",
+            },
+            body: "",
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              console.log("data for adminUser is : ", data);
+              setGetAllUser(data.getuser);
+            });
+        } catch (error) {
+          console.log(error);
+        }
+      }
     };
     fetchAllUsers();
   }, []);

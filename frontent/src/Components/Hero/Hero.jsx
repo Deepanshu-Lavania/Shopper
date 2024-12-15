@@ -19,8 +19,8 @@ export default function Hero({onScroll}) {
               <p>collections</p>
               <p>for everyone</p>
             </div>
-            <div className="hero-latest-btn">
-              <div onClick={onScroll}>Latest Collection</div>
+            <div onClick={onScroll} className="hero-latest-btn">
+              <div >Latest Collection</div>
               <img src={arrow_icon} alt="" />
             </div>
           </div>

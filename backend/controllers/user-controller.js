@@ -101,8 +101,9 @@ const Login = async (req, res) => {
   }
 };
 const getAdminUser = async (req, res) => {
+  console.log("req.user.id in getAdminUser for user-controller : ",req.user.id);
   try {
-    let getUser = await User.find({});
+    let getUser = await User.find({_id:{$ne:req.user.id}});
     res.json({
       success: true,
       message: "User get successfully!",
