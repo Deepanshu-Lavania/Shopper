@@ -40,17 +40,19 @@ const SignUp = async (req, res) => {
 
     // Save the user to the database
     await user.save();
-    console.log("user is : ",user);
-    
+    console.log("user is : ", user);
+
     // Generate a JWT token
     const token = jwt.sign(
       { user: { id: user._id } },
-      'secret_ecom', // Use a proper environment variable for secret
+      "secret_ecom", // Use a proper environment variable for secret
       { expiresIn: "30d" } // Set token expiration
     );
 
     // Return success response with token
-    res.status(201).json({message: "SignUp successfully", user, success: true, token });
+    res
+      .status(201)
+      .json({ message: "SignUp successfully", user, success: true, token });
   } catch (error) {
     console.error("Error during sign-up:", error);
     res.status(500).json({ success: false, error: "Internal Server Error" });
@@ -85,18 +87,58 @@ const Login = async (req, res) => {
 
     res.status(201).json({
       message: "User logged in successfully",
-      success:true,
+      success: true,
       user: {
         _id: user._id,
         username: user.username,
         email: user.email,
       },
-      token
+      token,
     });
   } catch (error) {
     console.log(error);
     res.status(500).json({ message: "Server error" });
   }
 };
+const getAdminUser = async (req, res) => {
+  try {
+    let getUser = await User.find({});
+    res.json({
+      success: true,
+      message: "User get successfully!",
+      getuser: getUser,
+    });
+  } catch (error) {
+    console.error("Error to getting all Users:", error);
+    res.status(500).json({
+      success: false,
+      message: "Failed to get product",
+      error: error.message,
+    });
+  }
+};
+const deleteAdminUser = async (req, res) => {
+  try {
+    console.log("req.body.id is:", req.body);
+    // Validate request body
+    if (!req.body.id) {
+      return res.status(400).send({ message: "User ID is required" });
+    }
+    // Delete the user by ID
+    const deletedUser = await User.deleteOne({ _id: req.body.id });
+    if (deletedUser.deletedCount > 0) {
+      const remainingUsers = await User.find();
+      return res.status(200).send({
+        message: "User deleted successfully",
+        remainingUsers,
+      });
+    } else {
+      return res.status(404).send({ message: "User not found" });
+    }
+  } catch (error) {
+    console.error("deleteAdminUser error:", error);
+    res.status(500).send({ message: "Internal server error", error });
+  }
+};
 
-module.exports = { SignUp, Login };
+module.exports = { SignUp, Login, getAdminUser, deleteAdminUser };

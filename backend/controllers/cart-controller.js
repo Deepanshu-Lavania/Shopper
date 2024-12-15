@@ -48,8 +48,7 @@ const getAll_cartNum = async(req,res)=>{
 
     const reqId = req.user.id;
     let userData = await User.findOne({ _id: reqId });
-    console.log("GetCartData ", userData.cardData);
+    // console.log("GetCartData ", userData.cardData);
     res.json(userData.cardData);
-
 }
 module.exports = {addtoCart, removetoCart, getAll_cartNum};

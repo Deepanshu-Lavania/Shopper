@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Navbar.css";
 import logo from "../../assets/logo.png";
@@ -9,7 +9,8 @@ import arrow_icon from "../../assets/breadcrum_arrow.png";
 
 export default function Navbar() {
   const navigate = useNavigate();
-  const [menu, setMenu] = useState("");
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [menu, setMenu] = useState("Shop");
   const menuRef = useRef();
   const dropdown_toggle = (e) => {
     menuRef.current.classList.toggle("nav-menu-visible");
@@ -19,6 +20,30 @@ export default function Navbar() {
     textDecoration: "none",
   };
   const { getTotalCartItems } = useContext(ShopContext);
+
+  //!for checking admin is or not
+  useEffect(() => {
+    if (localStorage.getItem("auth-token")) {
+      try {
+        fetch("http://localhost:8000/getauth", {
+          method: "POST",
+          headers: {
+            Accept: "application/form-data",
+            "auth-token": `${localStorage.getItem("auth-token")}`,
+            "Content-Type": "application/json",
+          },
+          body: "",
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log("data for isAdmin or not  : ", data);
+            setIsAdmin(data.Admin);
+          });
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  }, []);
 
   const logout = () => {
     localStorage.removeItem("auth-token");
@@ -64,16 +89,25 @@ export default function Navbar() {
             </Link>
             {menu === "Kid" && <hr />}
           </li>
-          <li onClick={() => setMenu("Admin")}>
-            <Link style={linkStyle} to="/admins">
-              Admin
-            </Link>
-            {menu === "Admin" && <hr />}
-          </li>
+          {isAdmin ? (
+            <li onClick={() => setMenu("Admin")}>
+              <Link style={linkStyle} to="/admins">
+                Admin
+              </Link>
+              {menu === "Admin" && <hr />}
+            </li>
+          ) : (
+            ""
+          )}
         </ul>
         <div className="nav-login-cart">
           {localStorage.getItem("auth-token") ? (
-            <button onClick={() => {logout()}}>Logout
+            <button
+              onClick={() => {
+                logout();
+              }}
+            >
+              Logout
             </button>
           ) : (
             <button>

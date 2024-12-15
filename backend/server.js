@@ -7,6 +7,7 @@ const productRoute = require("./router/product-route");
 const userRoute = require("./router/user-route");
 const collectionRoute=require("./router/collection-route");
 const cartRoute = require("./router/cart-route");
+const getauthUserRoute = require('./router/auth-route');
 
 const app = express()
 
@@ -22,6 +23,7 @@ app.use('/',productRoute)
 app.use('/',userRoute)
 app.use('/',collectionRoute)
 app.use('/',cartRoute)
+app.use('/',getauthUserRoute)
 
 
 //listen server && connect with database

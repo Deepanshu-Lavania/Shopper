@@ -1,0 +1,121 @@
+
+ /* General container styling */
+.admin-user {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1100px;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+/* Table styling */
+table {
+    width: 100%;
+    margin-top: 1rem;
+    background: #fff;
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+thead tr th {
+    padding: 0.8rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color:#434343;
+    letter-spacing: 0.05rem;
+    text-align: center;
+    background-color: #f4f4f4;
+}
+
+tbody tr td {
+    padding: 0.8rem;
+    font-size: 0.9rem;
+    color: #333;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Button styling */
+.delete-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+    color: #fff;
+    background-color: #e74c3c;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.delete-btn:hover {
+    background-color: #c0392b;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    table {
+        font-size: 0.8rem;
+    }
+
+    thead {
+        display: none;
+    }
+
+    tbody tr {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1rem;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    tbody tr td {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.8rem;
+        border-bottom: 1px solid #ddd;
+    }
+
+    tbody tr td:last-child {
+        border-bottom: none;
+    }
+    tbody tr:last-child{
+        padding-bottom: 0px;
+        margin-bottom: 0px;
+    }
+
+    tbody tr td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        color: #555;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 10px;
+    }
+    .delete-btn{
+        padding: 0.3rem 0.6rem;
+        font-size: 0.8rem;
+    }
+}
