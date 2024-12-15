@@ -43,11 +43,12 @@ const removetoCart = async(req,res)=>{
     res.send({message:"removetoCart is successfully done"});
 }
 const getAll_cartNum = async(req,res)=>{
-    console.log("req.body for removetoCart after authentication is ", req.body);
-    console.log("req.user for removetoCart after authentication is is ", req.user);
+    console.log("req.body for getAll_cartNum after authentication is ", req.body);
+    console.log("req.user for getAll_cartNum after authentication is is ", req.user);
 
     const reqId = req.user.id;
     let userData = await User.findOne({ _id: reqId });
+    console.log("GetCartData ", userData.cardData);
     res.json(userData.cardData);
 
 }

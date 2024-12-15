@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./ListProduct.css";
 import axios from "axios";
-import cross_icon from "../../assets/cross_icon.png";
+import cross_icon from "../../../assets/AdminImage/cross_icon.png";
 
 export default function ListProduct() {
   const [allproducts, setAllProducts] = useState([]);
@@ -21,7 +21,7 @@ export default function ListProduct() {
   }
   return (
     <div className="list-product">
-      <h1>All Product List</h1>
+      <h2>All Product List</h2>
       <div className="listproduct-format-main">
         <p>Products</p>
         <p>Title</p>

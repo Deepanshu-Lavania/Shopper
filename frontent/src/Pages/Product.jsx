@@ -11,14 +11,14 @@ export default function Product() {
   const {all_product} = useContext(ShopContext);//all_product == contextValue
   const {productId} = useParams();//useParams give id as string
   const product = all_product.find((e)=> e.id === Number(productId));
-  console.log("product id is : ",product);
+  console.log("product of Product.jsx is : ",product);
   
   return (
     <div>
       <Breadcrum product={product}/>
       <ProductDisplay product={product}/>
       <DescriptionBox/>
-      <RelatedProducts/>
+      <RelatedProducts product={product}/>
     </div>
   )
 

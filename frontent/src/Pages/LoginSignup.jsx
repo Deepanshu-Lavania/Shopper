@@ -52,11 +52,13 @@ export default function LoginSignup() {
         localStorage.setItem("auth-token",res.data.token)
         alert("Login successfully!")
         navigate("/")
+        window.location.reload();
       }
       setFormData({
         password: "",
         email: "",
       });
+      window.location.reload();
     } catch (error) {
       console.log(error);
       alert(error.response.data.message);

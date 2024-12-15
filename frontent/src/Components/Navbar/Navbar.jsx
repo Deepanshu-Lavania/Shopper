@@ -23,6 +23,8 @@ export default function Navbar() {
   const logout = () => {
     localStorage.removeItem("auth-token");
     navigate("/");
+    window.location.reload();
+    //* window.location.replace("/") replaces the current entry in the history stack with the new one (the new path or URL), without creating a new entry
   };
   return (
     <>
@@ -59,8 +61,14 @@ export default function Navbar() {
           <li onClick={() => setMenu("Kid")}>
             <Link style={linkStyle} to="/kids">
               Kid
-            </Link>{" "}
+            </Link>
             {menu === "Kid" && <hr />}
+          </li>
+          <li onClick={() => setMenu("Admin")}>
+            <Link style={linkStyle} to="/admins">
+              Admin
+            </Link>
+            {menu === "Admin" && <hr />}
           </li>
         </ul>
         <div className="nav-login-cart">

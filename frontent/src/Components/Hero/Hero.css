@@ -5,6 +5,7 @@
   justify-content: center;
   align-items: center;
   gap: 10px;
+  height: 60vh;
 }
 /*================ hero-left ================*/
 .hero-left-side {
@@ -66,6 +67,9 @@
   }
 }
 @media (max-width: 1030px) {
+  .hero{
+    height: 50vh;
+  }
   .hero-left {
     padding-left: 2rem;
     line-height: 0.8;
@@ -108,10 +112,13 @@
     width: 16px;
   }
   .hero-right img {
-    height:50vh;
+    height:55vh;
   }
 }
 @media (max-width:650px){
+  .hero{
+    height: 50vh;
+  }
   .hero-right img {
     height:40vh;
   }

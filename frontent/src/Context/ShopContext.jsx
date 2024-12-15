@@ -21,40 +21,31 @@ const ShopContextProvider = ({ children }) => {
   //   console.log(cartItems);
 
   useEffect(() => {
-    const fetchProducts = async () => {
+    fetch("http://localhost:8000/getallproduct")
+      .then((response) => response.json())
+      .then((data) => setAll_product(data.product));
+    //* getAll_CartNum : getall total number of cart Item
+    if (localStorage.getItem("auth-token")) {
       try {
-        /* fetch("http://localhost:8000/getallproduct")
+        fetch("http://localhost:8000/getcart", {
+          method: "POST",
+          headers: {
+            Accept: "application/form-data",
+            "auth-token": `${localStorage.getItem("auth-token")}`,
+            "Content-Type": "application/json",
+          },
+          body: "",
+        })
           .then((response) => response.json())
-          .then((data) => setAll_product(data.product)); */
-        const res = await axios.get("http://localhost:8000/getallproduct");
-        const Data = res.data.product;
-        console.log("getallproduct in shopContext is:", Data);
-        setAll_product(Data);
-
-        //* getAll_CartNum : getall total number of cart Item
-        if (localStorage.getItem("auth-token")) {
-          try {
-            await fetch("http://localhost:8000/getcart", {
-              method: "POST",
-              headers: {
-                Accept: "application/form-data",
-                "auth-token": `${localStorage.getItem("auth-token")}`,
-                "Content-Type": "application/json",
-              },
-              body:"",
-            })
-              .then((response) => response.json())
-              .then((data) =>setCartItems(data));
-          } catch (error) {
-            console.log(error);
-          }
-        }
+          .then((data) => {
+            setCartItems(data);
+            console.log("data for getallcartNum is : ", data);
+          });
       } catch (error) {
-        console.error("Error fetching products:", error);
+        console.log(error);
       }
-    };
-    fetchProducts();
-  }, []);
+    }
+  },[]);
 
   //! AddToCart with authentication
   const addToCart = async (itemId) => {

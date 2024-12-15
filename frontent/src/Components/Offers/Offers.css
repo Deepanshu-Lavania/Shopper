@@ -51,7 +51,10 @@
 }
 @media(max-width:1030px){
     .offers{
-        margin-bottom: 30px;
+        margin-bottom:0px;
+    }
+    .offers-right{
+        padding-top: 0px;
     }
     .offers-right img{
         height: 80%;
@@ -76,6 +79,9 @@
         width:120px;
         height:30px;
         font-size:18px;
+    }
+    .offers-right img{
+        height:100%;
     }
 }
 @media(max-width:500px){

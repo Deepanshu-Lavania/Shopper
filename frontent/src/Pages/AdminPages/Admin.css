@@ -1,6 +1,7 @@
 .admin{
     display: flex;
     gap: 20px;
+    height:100%;
 }
 @media(max-width:800px){
     .admin{

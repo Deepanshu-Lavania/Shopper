@@ -3,12 +3,21 @@ import "./ProductDisplay.css";
 import star_icon from "../../assets/star_icon.png";
 import star_dull_icon from "../../assets/star_dull_icon.png";
 import { ShopContext } from "../../Context/ShopContext";
+import {useNavigate} from 'react-router-dom'
 
 export default function ProductDisplay({ product }) {
+  const navigate=useNavigate();
   const {addToCart} = useContext(ShopContext);//shopContext is the wearhouse
   if (!product) {
     return <div className="breadcrum">Loading...</div>;
   }
+  const handleAddToCart = () => {
+    if (localStorage.getItem("auth-token")) {
+      addToCart(product.id);
+    } else {
+      navigate("/login"); // Redirect to login if not logged in
+    }
+  };
   return (
     <div className="productDisplay">
       <div className="productdisplay">
@@ -60,7 +69,7 @@ export default function ProductDisplay({ product }) {
               <div>XXL</div>
             </div>
           </div>
-          <button onClick={()=>{addToCart(product.id)}}>ADD TO CART</button>
+          <button onClick={handleAddToCart}>ADD TO CART</button>
           <div className="category-tag">
             <p className="productdisplay-right-category">
               <span>Category :</span>Women , T-shirt , Crop Top
@@ -74,3 +83,6 @@ export default function ProductDisplay({ product }) {
     </div>
   );
 }
+
+
+
