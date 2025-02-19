@@ -44,7 +44,7 @@ const SignUp = async (req, res) => {
 
     // Generate a JWT token
     const token = jwt.sign(
-      { user: { id: user._id } },
+      { user: { id: user._id } },//payloads : It includes the user’s MongoDB _id, which can later be used to identify the user.
       "secret_ecom", // Use a proper environment variable for secret
       { expiresIn: "30d" } // Set token expiration
     );

@@ -25,6 +25,7 @@
     height: 6px;
     border-radius: 10px;
     background: #252525;
+    margin: auto;
 }
 
 @media(max-width:800px){

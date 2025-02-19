@@ -16,6 +16,7 @@
     height: 6px;
     border-radius: 10px;
     background: #252525 !important;
+    margin: auto;
 }
 .collections{
     display: grid;

@@ -4,9 +4,8 @@ import axios from "axios";
 // import new_collection from "../../assets/new_collections";
 import Item from "../Item/Item";
 
-
-export default function NewCollections({refProp}) {
-  const [new_collection, setNew_collection]  = useState([]);
+export default function NewCollections({ refProp }) {
+  const [new_collection, setNew_collection] = useState([]);
   useEffect(() => {
     const fetchNewProducts = async () => {
       try {
@@ -22,8 +21,10 @@ export default function NewCollections({refProp}) {
   }, []);
   return (
     <div className="new-collections" ref={refProp}>
-      <h1>LATESTS COLLECTIONS</h1>
-      <hr />
+      <div className="heading">
+        <h1>LATESTS COLLECTIONS</h1>
+        <hr />
+      </div>
       <div className="collections">
         {new_collection.map((item, i) => {
           return (
