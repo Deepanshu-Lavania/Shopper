@@ -18,7 +18,7 @@ export default function Sidebar() {
         <Link to={"listproduct"}>
           <div className="sidebar-item">
             <img src={list_product_icon} alt="" />
-            <p>Product Product</p>
+            <p>Avilable Products</p>
           </div>
         </Link>
       </div>

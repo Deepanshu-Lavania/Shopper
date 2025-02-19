@@ -22,13 +22,12 @@ export default function Popular() {
   }, []);
   return (
     <>
-
       <div className="popular">
         <div className="heading">
-        <h1>POPULAR IN WOMEN</h1>
-        <hr />
+          <h1>POPULAR IN WOMEN</h1>
+          <hr />
         </div>
-       
+
         <div className="popular-item">
           {data_product.map((item, i) => {
             return (
